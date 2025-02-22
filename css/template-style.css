@@ -1,5 +1,10 @@
 /* Default Template Styles */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 /* Typography */
 body {
   background: #fff;
@@ -527,32 +532,24 @@ nav{
 
 /* Hover Overlay */
 .image-hover-overlay {
-  width: 150px;
-  height: 150px;
-  align-items: center;
-  justify-content: center;
-  bottom: 0;
-  color: rgba(255,255,255, 0.75)!important;
-  left: 0;
-  opacity: 0;
-  padding: 0;
-  font-size:4px !important;
   position: absolute;
-  margin: auto;
-  right: 0;
   top: 0;
-  z-index: 1;
-  transition: all 0.20s linear 0s;
-  -o-transition: all 0.20s linear 0s;
-  -ms-transition: all 0.20s linear 0s;
-  -moz-transition: all 0.20s linear 0s;
-  -webkit-transition: all 0.20s linear 0s;
-  transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
 }
+
+.image-container:hover .image-hover-overlay {
+  opacity: 1;
+}
+
 .image-border-radius .image-hover-overlay {
   border-radius: 3px;
 }
@@ -589,11 +586,14 @@ nav{
 }
 
 .image-container img {
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures full image visibility */
+  transition: transform 0.3s ease-in-out;
 }
 
 .image-container:hover img {
-  transform: scale(1.5); /* Adjust the scale value as needed */
+  transform: scale(1.05);
 }
 /*  for image description on bottom side*/
 .image-container .caption  {
@@ -654,16 +654,24 @@ nav{
 /* Image blocks */
 .image-row {
   display: flex;
-  
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjust spacing between images */
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
 }
 
-
-.image-row .image-container {
-  flex: 1  1 calc(33.33% - 10px); /* Adjust the width of each image container */
-  margin: 5px; /* Adjust the margin as needed */
-  box-sizing: border-box;
+/* Image Containers */
+.image-container {
+  width: calc(25% - 15px); /* 4 images per row */
+  max-width: 300px;
+  height: 300px; /* Square container */
+  overflow: hidden;
+  text-align: center;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 .image-with-hover-overlay {
   display: block;

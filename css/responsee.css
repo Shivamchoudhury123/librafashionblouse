@@ -46,15 +46,23 @@ b,strong {font-weight:700;}
 .text-center {text-align:center!important;}
 .text-right {text-align:right!important;}
 img {
-  border:0;
-  display:block;
-  height:auto;
-  max-width:100%;
-  width:auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  position: relative;
+  bottom: 0;
+  left: -9px;
 }
-.owl-item img, .full-img {
+.owl-item img {
   max-width: none;
   width:100%;
+}
+
+.full-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Ensures the entire image is visible */
+  max-height: 400px; /* Prevents images from stretching */
 }
 .owl-nav div {font-family: "mfg";}  
 table {
