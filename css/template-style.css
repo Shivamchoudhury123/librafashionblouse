@@ -588,7 +588,8 @@ nav{
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures full image visibility */
+  object-fit: cover; /* Fills the square without rounding */
+  border-radius: 0 !important; /* Ensure images are not rounded */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -667,15 +668,18 @@ nav{
   height: 300px; /* Square container */
   overflow: hidden;
   text-align: center;
-  background: #f8f8f8;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  border-radius: 0 !important;
+  background: transparent; /* Ensuring no background color */
+  border: none; /* Ensuring no border */
 }
 .image-with-hover-overlay {
-  display: block;
-  position: relative;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
 }
 .image-border-radius img {
   border-radius: 3px;
